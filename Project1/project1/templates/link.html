@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NasaApi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    
+</head>
+    
+
+<body >
+    <nav class="navbar navbar-expand-lg " style='background-color:dark gray;'>
+        <div class="container-fluid">
+          <a class="navbar-brand" style='color:white; background-color:black;border-radius:5px; padding:5px;' href="#"><h1>NASA</h1></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" style='color:white;' aria-current="page" href="#">Home</a>
+              </li>
+              
+            </ul>
+            <form class="d-flex" role="search">
+             
+              <button class="btn btn-outline-success" type="submit">Update</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <form style="margin-left:20%; margin-top:10%;" action='link' method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">IP Address</label>
+          <input style='width:50%;' type="text"  name="ip1" class="form-control" id="ip1" aria-describedby="emailHelp">
+          <div id="ipp" class="form-text">Enter valid Ip</div>
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Fetch</button>
+      </form>
+      <form action='api2' method='POST'>
+        {% csrf_token %}
+        <button style='margin-left:20%; margin-top:1%;' type="submit" class="btn btn-primary">Enrich</button>
+      </form>
+      
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+</html>
+
+
+
+
+
+
+
+ <!-- ['identifier', 'caption', 'image', 'version', 'centroid_coordinates', 'dscovr_j2000_position', 'lunar_j2000_position', 'sun_j2000_position', 'attitude_quaternions', 'date', 'coords'] -->

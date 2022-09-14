@@ -1,0 +1,17 @@
+{
+	"id": "1",
+	"type": "icecream",
+	"name": "Vanilla Cone",
+	"image":
+		{
+			"url": "img/01.png",
+			"width": 200,
+			"height": 200
+		},
+	"thumbnail":
+		{
+			"url": "images/thumbnails/01.png",
+			"width": 32,
+			"height": 32
+		}
+}

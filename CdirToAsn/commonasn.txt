@@ -1,0 +1,15 @@
+
+{'common':120,'uncommon':71,'file':salesforce1.txt}
+{'common':31,'uncommon':63,'file':salesforce.txt}
+{'common':51,'uncommon':5,'file':meraki1.txt}
+{'common':18,'uncommon':15,'file':meraki.txt}
+{'common':6,'uncommon':53,'file':limelight.txt}
+{'common':33,'uncommon':216,'file':limelight1.txt} #LLNW 
+{'common':53,'uncommon':0,'file':level3.txt}
+{'common':38,'uncommon':548,'file':level31.txt} #NA
+{'common':58,'uncommon':46,'file':iqiyi.txt}
+{'common':57,'uncommon':36,'file':iqiyi1.txt} #NA
+{'common':0,'uncommon':106,'file':ibmcloud.txt}  #SOFTLAYER
+{'common':0,'uncommon':2123,'file':ibmcloud1.txt}  #SOFTLAYER
+{'common':1,'uncommon':1,'file':afreecatv.txt}
+{'common':17,'uncommon':1,'file':afreecatv1.txt}

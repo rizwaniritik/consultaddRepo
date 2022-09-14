@@ -1,0 +1,10 @@
+{'site':'afreecatv.txt','similar':1,'dissimilar':18,'asn':'NOWCOM-AS-KR AfreecaTV Co., Ltd, KR'}
+{'site':'akamai.txt','similar':3550,'dissimilar':15648,'asn':'AKAMAI-ASN1, NL'}
+{'site':'alibaba.txt','similar':64,'dissimilar':66933,'asn':'ALIBABA-CN-NET Alibaba US Technology Co., Ltd., CN'}
+{'site':'hbo.txt','similar':46,'dissimilar':28,'asn':'NETERRA-AS, BG'}
+{'site':'ibmcloud.txt','similar':0,'dissimilar':2228,'asn':'SOFTLAYER, US'}
+{'site':'iqiyi.txt','similar':93,'dissimilar':11,'asn':'IQIYI-AS-AP Beijing IQIYI Science & Technology Co., Ltd., CN'}
+{'site':'level3.txt','similar':0,'dissimilar':639,'asn':'LEVEL3, US'}
+{'site':'limelight.txt','similar':21,'dissimilar':266,'asn':'ASN-IBSNAZ, IT'}
+{'site':'meraki.txt','similar':13,'dissimilar':63,'asn':'EVINY-AS8542 Norway, NO'}
+{'site':'salesforce.txt','similar':26,'dissimilar':233,'asn':'SALESFORCE, US'}
