@@ -27,61 +27,63 @@ def home(request):
 
 def link(request):
     config=configparser.ConfigParser()
-    config.read('/Users/consultadd/Desktop/codes/Project1/project1/api/project1.ini') 
-    key=config.get('credentials','key')
-    
+    # config.read('../api/project1.ini') 
+    # key=config.get('credentials','key')
+    key='at_qj2pkn5vHvkpebfhRWbTNWlioo75Y'
     if request.method=='POST':
         ip=request.POST.get('ip1')
         
         link="https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=%s&domainName=%s" %(key,ip)
+        try:
+            r=requests.get(link)
+            file=bs.BeautifulSoup(r.content,'xml')
         
-        r=requests.get(link)
-        file=bs.BeautifulSoup(r.content,'xml')
-       
-        organization=file.find('organization').text
-        state=file.find('state').text
-        country=file.find('country').text
-        description=file.find('rawText').text[:70]
-        creation_date=file.find('createdDate').text[:10]
-        cd=creation_date.split('-')
-        cd=datetime.date(int(cd[0]),int(cd[1]),int(cd[2]))
-        w=WhoIs.objects.create(ip=ip,organization=organization,state=state,country=country,description=description,creation_date=cd)
-        w.save()
-        jsondict={
-        'organization':organization,
-        'state':state,
-        'country':country,
-        'description':description,
-        'creation_date':creation_date
-        }
-        s3=boto3.client('s3')
-        
-        filedata=s3.get_object(Bucket='ritikbucket102',Key='ritik.json')
-       
-        
-        
-        filecontent=filedata["Body"].read().decode('utf-8')
-        if len(filecontent)!=0:
+            organization=file.find('organization').text
+            state=file.find('state').text
+            country=file.find('country').text
+            description=file.find('rawText').text[:70]
+            creation_date=file.find('createdDate').text[:10]
+            cd=creation_date.split('-')
+            cd=datetime.date(int(cd[0]),int(cd[1]),int(cd[2]))
+            w=WhoIs.objects.create(ip=ip,organization=organization,state=state,country=country,description=description,creation_date=cd)
+            w.save()
+            jsondict={
+            'organization':organization,
+            'state':state,
+            'country':country,
+            'description':description,
+            'creation_date':creation_date
+            }
+            s3=boto3.client('s3')
             
-            filecontent=json.loads(filecontent)
-            data=[record for record in filecontent]
-            data.append(jsondict)
-            data=json.dumps(data)
-        else:
-            data=json.dumps([jsondict])
-        print(data)
+            filedata=s3.get_object(Bucket='ritikbucket102',Key='ritik.json')
         
-        
+            
+            
+            filecontent=filedata["Body"].read().decode('utf-8')
+            if len(filecontent)!=0:
+                
+                filecontent=json.loads(filecontent)
+                data=[record for record in filecontent]
+                data.append(jsondict)
+                data=json.dumps(data)
+            else:
+                data=json.dumps([jsondict])
+            print(data)
+            
+            
 
-        s3 = boto3.resource('s3')
-        bucket = s3.Bucket('ritikbucket102')
-        
-        object = bucket.put_object(
-        ACL='private',
-        Body=(str(data)).encode('utf-8'),
-        
-        Key='ritik.json'
-    )
+            s3 = boto3.resource('s3')
+            bucket = s3.Bucket('ritikbucket102')
+            
+            object = bucket.put_object(
+            ACL='private',
+            Body=(str(data)).encode('utf-8'),
+            
+            Key='ritik.json'
+        )
+        except Exception as e:
+            print(e)
     return render(request,'link.html')
     
 
